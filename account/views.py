@@ -21,7 +21,7 @@ def loginProc(request):
             auth.login(request, user)
             return redirect('mainpage')
         else :
-            return render(request, 'mainpage', {'error':'Username or Password is incorrect'})
+            return render(request, 'mainpage.html', {'error':'Username or Password is incorrect'})
     return redirect('mainpage')
 
 def logout(request):

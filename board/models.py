@@ -15,6 +15,7 @@ class Post(models.Model):
     content = models.TextField()
     location = models.TextField()
     tag_set = models.ManyToManyField('Tag', related_name='tag', blank=True)
+    photo = models.ImageField(blank=True)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
 
     def createdDate(self):

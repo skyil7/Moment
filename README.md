@@ -5,7 +5,6 @@
 
 - mainpage : 로그인 되어 있으면 mainpage.html, 아니면 service.html 반환
 - signup : signup.html
-게시판 기능, 해시태그, 카테고리 기능
 ### account
 회원 로그인, 가입 기능 등
 
@@ -14,5 +13,6 @@
 - logout : 로그아웃 처리용 url
 
 ### board
+게시판 기능, 해시태그, 카테고리 기능
 - create : 글쓰기 페이지 post_form.html
 - read : 글읽기 페이지 post_detail.html
