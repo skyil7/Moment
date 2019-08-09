@@ -2,15 +2,19 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>글 읽기</title>
+    <title>{{object.title}}</title>
     {% load hashtag %}
 </head>
-<body>
-{{object.title}}
-{{object.writer}}
-{{object.createdDate}}
-<img src="{{ object.photo.url }}">
-{{object.category}}
-{{object|add_link|safe}}
+<body class="cheat">
+{% include 'nav.html' %}
+<div class="container bg-white h-100">
+<img class="my-5 img-fluid" src="{{ object.photo.url }}">
+    <h3>{{object.title}}</h3>
+    <span>{{object.writer}}</span>&nbsp; &nbsp;
+    <span>{{object.createdDate}}</span><hr>
+    {{object|add_link|safe}}
+    <hr>
+    카테고리 : {{object.category}}
+</div>
 </body>
 </html>

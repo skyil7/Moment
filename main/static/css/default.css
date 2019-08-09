@@ -18,3 +18,12 @@
     text-align: center;
     color: white;
 }
+
+.cheat {
+    background-image: url("/static/img/bg2.jpg");
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 60%;
+    height: 100vh;
+}
