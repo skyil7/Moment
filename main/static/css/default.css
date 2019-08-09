@@ -25,4 +25,12 @@
     background-repeat: no-repeat;
     min-height: 60%;
     height: 100vh;
+<<<<<<< HEAD
 }    
+=======
+}
+.pin{
+    align-items: center;
+    text-align: center;
+}
+>>>>>>> fdfff28b9aea47ca670cbfd5022dbdf42a21efd5
