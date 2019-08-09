@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가입하기</title>
+</head>
+<body>
+<form method="POST" action="{% url 'signupProc' %}">
+{% csrf_token %}
+<input type="text" name="username" class="form-control" placeholder="username">
+<input type="password" name="password" class="form-control" placeholder="password">
+<input type="password" name="confpass" class="form-control" placeholder="비밀번호 확인">
+<input type="submit" value="Sign up" class="btn float-right login_btn">
+</form>
+</body>
+</html>

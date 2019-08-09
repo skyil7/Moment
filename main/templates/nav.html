@@ -1,1 +1,9 @@
 {% include 'default.html' %}
+<form method="POST" action="{% url 'loginProc' %}">
+{% csrf_token %}
+<input type="text" name="username" class="form-control" placeholder="username">
+<input type="password" name="password" class="form-control" placeholder="password">
+<input type="submit" value="Login" class="btn float-right login_btn">
+</form>
+
+<a href="{% url 'signup' %}">가입하기</a>
