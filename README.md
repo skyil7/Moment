@@ -14,5 +14,6 @@
 
 ### board
 게시판 기능, 해시태그, 카테고리 기능
+
 - create : 글쓰기 페이지 post_form.html
 - read : 글읽기 페이지 post_detail.html
