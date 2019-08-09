@@ -4,9 +4,12 @@ from django.contrib.auth.models import User
 import re
 
 class Category(models.Model):
-    name = models.CharField(max_length=80, unique=True)
+    name = models.CharField(max_length=80)
+    master = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return self.name
+        return self.name + " by " + self.master.username
+    def toStr(self):
+        return self.__str__()
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -23,6 +26,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def summary(self):
+        if len(self.content)>30:
+            return self.content[:30]+'...'
+        else:
+            return self.content
 
     def tag_save(self):
         self.tag_set.clear()

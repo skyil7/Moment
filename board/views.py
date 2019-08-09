@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 class PostCreate(CreateView):
     model = Post
-    fields = ['title', 'content', 'location', 'category']
+    fields = ['title', 'photo', 'content', 'location', 'category']
 
     def dispatch(self, *args, **kwargs):
         return super(PostCreate, self).dispatch(*args, **kwargs)

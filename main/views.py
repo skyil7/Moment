@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from board.models import Post
+from board.models import Post, Category, Tag
 
 def home(request):
     if request.user.is_authenticated:#로그인 됨
@@ -11,5 +11,7 @@ def signup(request):
     return render(request, 'signup.html')
 
 def mainList(request):
-    object_list = Post.objects.all()
-    return render(request, 'mainpage.html', {'object_list':object_list})
+    posts = Post.objects.all()
+    categories = Category.objects.all()
+    tags = Tag.objects.all()
+    return render(request, 'mainpage.html', {'posts':posts, 'categories':categories, 'tags':tags})

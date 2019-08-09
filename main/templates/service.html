@@ -12,6 +12,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>   
     <ul class="navbar-nav mx-auto">
+         <li class="nav-item"><a href="/" class="active nav-link ">HOME</a></li>
          {% if user.is_authenticated %}
          <li class="nav-item"><a href="#" class="nav-link text-info" >Welcome, {{user.get_username}}</a></li>
          <li class="nav-item">

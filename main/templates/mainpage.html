@@ -7,13 +7,47 @@
     {% include 'default.html' %}
 </head>        
 <body class="">
-        {% include 'nav.html' %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="col">
+                            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+                        </button>
+                        </div>
+                        <div class="col-5">
+                            <a class="" href="/">LOGO</a>
+                        </div>
+                        <ul class="navbar-nav float-right">
+                                {% if user.is_authenticated %}
+                                <li class="nav-item"><a href="#" class="nav-link text-info" >Welcome, {{user.get_username}}</a></li>
+                                <li class="nav-item">
+                                    <a href="{% url 'logout' %}" class="nav-link active">Logout</a></li>                                
+                                {% endif %}
+                        </ul>                                   
+                                     
+                
+         </nav>
          
          <div class="row col-md-3 float-left border-right">
             <div class="h-100">
                 <div class="collapse multi-collapse" id="collapseExample">
                     <div class="w-100" id="category">
-                        <button type="button" class="btn btn-primary btn-xs">전체</button>
+                        <select v-model="selected" class="mb-3">
+                            <option value="all">전체보기</option>
+                            <option value="default">기본 카테고리</option>
+                            {% for category in categories %}
+                            <option value="{{category.toStr}}">{{category.toStr}}</option>
+                            {% endfor %}
+                        </select>
+                        {% for post in posts %}
+                        <div class="card" category="{{post.category}}">
+                            <img src="{{post.photo.url}}" class="card-img-left" style="max-width: 300px">
+                            <div class="card-body">
+                                <h5 class="card-title">{{post.title}}</h5>
+                                <p class="card-text">{{post.summary}}</p>
+                                <a href="/post/read/{{post.id}}" class="btn btn-primary">자세히</a>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                     <div class="w-100" id="tag">
                     
