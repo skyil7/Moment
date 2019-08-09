@@ -1,8 +1,6 @@
 .logo {
     position: absolute;
     transform: translateX(-50%);
-<<<<<<< HEAD
-    left: 50%;
 }
 
 .service-body{
@@ -28,6 +26,3 @@
     min-height: 60%;
     height: 100vh;
 }    
-=======
-}
->>>>>>> branch_sj
