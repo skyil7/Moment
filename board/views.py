@@ -26,3 +26,10 @@ class PostRead(DetailView):
 class PostDelete(DeleteView):
     model = Post
     success_url = reverse_lazy('mainpage')
+
+from django.http import JsonResponse
+
+
+# Create your views here.
+def index(request):
+    return JsonResponse({'foo': 'bar'})

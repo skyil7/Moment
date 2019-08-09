@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>글 쓰기</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">SUBMIT</button>
+</form>
+</body>
+</html>
