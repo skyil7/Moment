@@ -149,3 +149,6 @@ dmypy.json
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 static/admin
+
+# pycharm
+.idea/
