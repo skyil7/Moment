@@ -12,5 +12,4 @@ def signup(request):
 
 def mainList(request):
     object_list = Post.objects.all()
-    print(object_list[0])
     return render(request, 'mainpage.html', {'object_list':object_list})

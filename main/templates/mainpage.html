@@ -7,25 +7,7 @@
     {% include 'default.html' %}
 </head>        
 <body class="">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="col">
-                            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
-                        </button>
-                        </div>
-                        <div class="col-5">
-                            <a class="" href="/">LOGO</a>
-                        </div>
-                        <ul class="navbar-nav float-right">
-                                {% if user.is_authenticated %}
-                                <li class="nav-item"><a href="#" class="nav-link text-info" >Welcome, {{user.get_username}}</a></li>
-                                <li class="nav-item">
-                                    <a href="{% url 'logout' %}" class="nav-link active">Logout</a></li>                                
-                                {% endif %}
-                        </ul>                                   
-                                     
-                
-         </nav>
+        {% include 'nav.html' %}
          
          <div class="row col-md-3 float-left border-right">
             <div class="h-100">
