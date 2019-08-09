@@ -27,3 +27,7 @@
     min-height: 60%;
     height: 100vh;
 }
+.pin{
+    align-items: center;
+    text-align: center;
+}

@@ -1,12 +1,13 @@
 {% include 'default.html' %}
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="col">
-            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
                 <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
         </button>
         </div>
         <div class="col-5">
-            <a class="" href="/">LOGO</a>
+            <a class="" href="/"><img class="img-fluid" style="max-width: 150px; margin-left: -25px" src="{% static 'img/logo.png' %}"> </a>
         </div>
         <ul class="navbar-nav float-right">
                 {% if user.is_authenticated %}

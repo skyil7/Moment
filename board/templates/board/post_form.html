@@ -3,14 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>글 쓰기</title>
+    {% include 'default.html' %}
+
 </head>
 <body>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-    {{form.as_table}}
-    </table>
-    <button type="submit">SUBMIT</button>
-</form>
+    {% include 'nav.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 panel panel-default">
+                <br>
+                <hr>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                            <div class="input-group mb-3">
+                                <label for="id_title" class="col-sm-3 col-form-label">Title:</label>
+                                 <div class="form-group col-md-4">
+                                     <div class="input-group mr-sm-2">
+                                         <input type="text"  class="form-control" name="title" maxlength="100" required id="id_title">
+                                     </div>
+                                 </div>
+                            </div>
+                             <div class="input-group mb-3">
+                                    <label for="id_photo" class="col-sm-3 col-form-label">Photo:</label>
+                                     <div class="form-group col-md-6">
+                                         <div class="input-group mr-sm-2">
+                                                <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile"  class="form-control" name="photo" accept="image/*" id="id_photo">
+                                                        <label class="custom-file-label" for="customFile"></label>
+                                                      </div>
+                                         </div>
+                                     </div>
+                             </div>
+                             <div class="input-group mb-3">
+                                    <label for="id_content" class="col-sm-3 col-form-label">Content:</label>
+                                     <div class="form-group col-md-6">
+                                         <div class="input-group mr-sm-2">
+                                            <textarea name="content"  class="form-control" cols="40" rows="10" required id="id_content"></textarea>
+                                         </div>
+                                     </div>
+                             </div>
+                             <div class="input-group mb-3">
+                                    <label for="id_location" class="col-sm-3 col-form-label">Location:</label>
+                                     <div class="form-group col-md-6">
+                                         <div class="input-group mr-sm-2">
+                                            <textarea name="location"class="form-control" cols="40" rows="10" required id="id_location"></textarea>
+                                         </div>
+                                     </div>
+                             </div>
+                             <div class="input-group mb-3">
+                                    <label for="id_category" class="col-sm-3 col-form-label">Category:</label>
+                                     <div class="form-group col-md-6">
+                                         <div class="input-group mr-sm-2">
+                                                <select name="category" id="id_category">
+                                                        <option value selected>---------</option>
+                                                </select>
+                                        </div>
+                                     </div>
+                             </div>
+                    </div>
+                    <p class="text-center">
+                            <button type="submit" class="btn btn-secondary">SUBMIT</button>
+                    </p>
+
+                    <hr>
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
+
 </body>
 </html>

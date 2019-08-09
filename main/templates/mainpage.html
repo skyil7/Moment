@@ -5,11 +5,11 @@
     <title>메인페이지</title>
     {% load static %}
     {% include 'default.html' %}
-</head>        
+</head>
 <body class="">
         {% include 'nav.html' %}
-         
-         <div class="row col-md-3 float-left border-right">
+         <div class="row">
+         <div class="col-md-3 float-left border-right">
             <div class="h-100">
                 <div class="collapse multi-collapse" id="collapseExample">
                         <div class="accordion" id="accordionExample">
@@ -33,8 +33,8 @@
                                                         <a href="/post/read/{{post.id}}" class="btn btn-primary">자세히</a>
                                                     </div>
                                                 </div>
-                                            {% endfor %}    
-                                        </div>                
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                   </div>
                                 </div>
@@ -49,7 +49,11 @@
                                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="w-100" id="category">
-                        
+                                            {% for category in categories %}
+                                            <div class="card">
+                                                <h2>{{category.toStr}}</h2>
+                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                   </div>
@@ -65,17 +69,110 @@
                                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="w-100" id="tag">
-                    
+                                            {% for tag in tags %}
+                                            <div class="card">
+                                                <h2>#{{tag.name}}</h2>
+                                            </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>                    
+                              </div>
                 </div>
-            </div>                        
+            </div>
         </div>
-        <div class="col-md-8"></div>        
-         
+        <div class="col-md-9">
+            <div id="map" style="width:100%;height:93vh;"></div>
 
+            <script>
+            var mapoptions = {
+                center: new naver.maps.LatLng(37.3595704, 127.105399), //지도의 초기 중심 좌표
+                disableDoubleClickZoom: false, //사용자가 지도 위에서 마우스 버튼을 더블 클릭해 지도를 확대하는 기능의 사용 여부
+                disableKineticPan: true, //사용자가 지도를 드래그했을 때 관성 효과(사용자가 동작을 끝낸 후에도 계속되는 지도의 움직임)의 사용 여부
+                draggable: true, //마우스 또는 손가락을 이용한 지도 이동(패닝) 허용 여부
+                keyboardShortcuts: false, //키보드 방향 키를 이용한 지도 이동(패닝) 허용 여부
+                logoControl: false, //NAVER 로고 컨트롤의 표시 여부
+                // mapDataControl: true, //지도 데이터 저작권 컨트롤의 표시 여부
+                mapTypeControl: false, //지도 유형 컨트롤의 표시 여부(지도/위성)
+                 zoom: 9, //지도의 초기 줌 레벨
+                maxZoom: 11, //지도의 최대 줌 레벨
+                minZoom: 8, //지도의 최소 줌 레벨
+                pinchZoom: true, //핀치 제스처를 이용한 지도 확대/축소 허용 여부
+                scaleControl: true, //지도 축척 컨트롤의 표시 여부
+                scrollWheel: true, //마우스 스크롤 휠을 이용한 지도 확대/축소 허용 여부
+                 zoomControl: true, //줌 컨트롤의 표시 여부
+             };
+            var map = new naver.maps.Map('map', mapoptions);
+
+
+
+
+            var HOME_PATH = window.HOME_PATH || '.';
+            var cityhall = new naver.maps.LatLng(35.160833, 129.163889),
+                map = new naver.maps.Map('map', {
+                    center: cityhall.destinationPoint(0, 500), //
+                    zoom: 10
+                }),
+                marker = new naver.maps.Marker({
+                    map: map,
+                    position: cityhall
+                });
+
+            var cityhall_description = [
+                '<div class="iw_inner pin" style="text-align: center"><h3>부산밀면</h3><p><img src="media/맛있는국수.jpg" width="100" class="thumb" /><br/>부산밀면은 너무 맛있어!#부산 #밀면 #냠냠<br/></p></div>'
+            ].join('');
+            console.log(cityhall_description.toString())
+
+            var infowindow = new naver.maps.InfoWindow({
+                content: cityhall_description
+            });
+
+            naver.maps.Event.addListener(marker, 'click', function(e) {
+
+                if (infowindow.getMap()) { //
+                    infowindow.close();
+
+                } else {
+                    infowindow.open(map, marker);
+                }
+            });
+
+            infowindow.open(map, marker);
+
+
+
+            var busan = new naver.maps.LatLng(35.1664238, 129.1317596),
+
+                marker2 = new naver.maps.Marker({
+                    map: map,
+                    position: busan
+                });
+
+            var busan_description = [
+                '<div class="iw_inner pin" style="text-align: center"><h3>친구들</h3><p><img src="media/친구들.jpg" width="100" class="thumb" /><br/>부산에 간 서울 촌놈들 #부산 #친구<br/></p></div>'
+            ].join('');
+            console.log(busan_description.toString())
+
+            var infowindow2 = new naver.maps.InfoWindow({
+                content: busan_description
+            });
+
+            naver.maps.Event.addListener(marker2, 'click', function(e) {
+
+                if (infowindow2.getMap()) { //
+                    infowindow2.close();
+
+                } else {
+                    infowindow2.open(map, marker2);
+                }
+            });
+
+            infowindow.open(map, marker2);
+
+
+        </script>
+        </div>
+         </div>
 </body>
 </html>
