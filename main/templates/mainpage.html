@@ -12,31 +12,65 @@
          <div class="row col-md-3 float-left border-right">
             <div class="h-100">
                 <div class="collapse multi-collapse" id="collapseExample">
-                    <div class="w-100" id="category">
-                        <select v-model="selected" class="mb-3">
-                            <option value="all">전체보기</option>
-                            <option value="default">기본 카테고리</option>
-                            {% for category in categories %}
-                            <option value="{{category.toStr}}">{{category.toStr}}</option>
-                            {% endfor %}
-                        </select>
-                        {% for post in posts %}
-                        <div class="card" category="{{post.category}}">
-                            <img src="{{post.photo.url}}" class="card-img-left" style="max-width: 300px">
-                            <div class="card-body">
-                                <h5 class="card-title">{{post.title}}</h5>
-                                <p class="card-text">{{post.summary}}</p>
-                                <a href="/post/read/{{post.id}}" class="btn btn-primary">자세히</a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="w-100" id="tag">
+                        <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                  <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        전체글보기
+                                      </button>
+                                    </h2>
+                                  </div>
+                                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="w-100" id="all">
+                                            {% for post in posts %}
+                                                <div class="card" category="{{post.category}}">
+                                                    <img src="{{post.photo.url}}" class="card-img-left" style="max-width: 300px">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{post.title}}</h5>
+                                                        <p class="card-text">{{post.summary}}</p>
+                                                        <a href="/post/read/{{post.id}}" class="btn btn-primary">자세히</a>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}    
+                                        </div>                
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card">
+                                  <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Category
+                                    </button>
+                                    </h2>
+                                  </div>
+                                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="w-100" id="category">
+                        
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card">
+                                  <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Tag
+                                      </button>
+                                    </h2>
+                                  </div>
+                                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="w-100" id="tag">
                     
-                    </div>
-                    <div class="w-100" id="list">
-    
-                    </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>                    
                 </div>
             </div>                        
         </div>
