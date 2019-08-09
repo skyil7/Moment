@@ -7,6 +7,8 @@
 </head>
 <body>
     {% include 'nav.html' %}
-    <h1>테스트</h1>
+    {% for post in object_list %}
+    {{post.id}}
+    {% endfor %}
 </body>
 </html>

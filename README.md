@@ -15,3 +15,4 @@
 
 ### board
 - create : 글쓰기 페이지 post_form.html
+- read : 글읽기 페이지 post_detail.html
