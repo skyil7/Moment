@@ -1,4 +1,8 @@
 # Moment 백엔드
+## 서비스 소개
+네이버 지도 위에 여러분의 인생에서 가장 소중했던 순간들을 핀으로 남겨보세요!
+
+해시태그와 카테고리를 활용해서 모아볼 수도 있어요!
 ## 장고 앱 구성
 ### main
 프로젝트 메인 페이지 전반의 기능 수행
@@ -17,3 +21,10 @@
 
 - create : 글쓰기 페이지 post_form.html
 - read : 글읽기 페이지 post_detail.html
+
+## 팀
+세종대학교 멋사 7기 - 컨트롤즤
+- [백지오](https://www.github.com/skyil7)
+- [송지원](https://github.com/SongJi-Won)
+- [임서정](https://github.com/sjytis14)
+- [천이수](https://github.com/leesoo7595)
