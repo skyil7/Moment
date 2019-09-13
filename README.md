@@ -5,3 +5,5 @@
     - AutoNow
 - text
     - 텍스트 내용
+- lat, lang
+    - 좌표 저장용 int
