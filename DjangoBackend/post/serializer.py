@@ -5,5 +5,5 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         # fields = '__all__'
-        fields = ['pub_date', 'title', 'text', 'lat', 'lng', 'img']
+        fields = ['pub_date', 'title', 'category', 'date', 'address', 'text', 'lat', 'lng', 'img']
         read_only_fields = ('pub_date',)
