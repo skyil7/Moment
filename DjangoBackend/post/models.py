@@ -9,4 +9,8 @@ class Post(models.Model):
     pub_date = models.DateTimeField(auto_now=True)
     lat = models.IntegerField(null=True)
     lng = models.IntegerField(null=True)
-    img = models.TextField(null=True)
+    img = models.ImageField(null=True)
+    
+
+class Image(models.Model):
+    img = models.ImageField(blank=True)
