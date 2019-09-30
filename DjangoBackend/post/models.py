@@ -10,7 +10,7 @@ class Post(models.Model):
     lat = models.IntegerField(null=True)
     lng = models.IntegerField(null=True)
     img = models.ImageField(null=True)
-    
+
 
 class Image(models.Model):
     img = models.ImageField(blank=True)
